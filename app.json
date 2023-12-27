@@ -4,10 +4,10 @@
     "slug": "first-mobile-app",
     "version": "1.0.0",
     "orientation": "portrait",
-    "icon": "./assets/icon.png",
+    "icon": "./assets/photo-top.jpg",
     "userInterfaceStyle": "light",
     "splash": {
-      "image": "./assets/splash.png",
+      "image": "./assets/photo-top.jpg",
       "resizeMode": "contain",
       "backgroundColor": "#ffffff"
     },
@@ -19,12 +19,18 @@
     },
     "android": {
       "adaptiveIcon": {
-        "foregroundImage": "./assets/adaptive-icon.png",
+        "foregroundImage": "./assets/photo-top.jpg",
         "backgroundColor": "#ffffff"
-      }
+      },
+      "package": "com.rex_lapin.firstmobileapp"
     },
     "web": {
-      "favicon": "./assets/favicon.png"
+      "favicon": "./assets/photo-top.jpg"
+    },
+    "extra": {
+      "eas": {
+        "projectId": "c7aa5d22-3f39-4a72-960e-8e656096c3f6"
+      }
     }
   }
 }
