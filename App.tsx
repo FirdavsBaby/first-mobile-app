@@ -6,6 +6,7 @@ import {
   TextInput,
   Button,
   Alert,
+  FlatList,
 } from "react-native";
 import { ITodo } from "./types/Todo";
 import { useState } from "react";
@@ -34,7 +35,7 @@ export default function App() {
   };
 
   return (
-    <ScrollView className="w-full py-9 px-2">
+    <View className="w-full py-9 px-2">
       <View className="w-full flex items-center flex-col">
         <Text className="w-full text-center text-xl mt-5 font-bold">
           Type your todolist right now !
@@ -57,23 +58,21 @@ export default function App() {
         </Text>
       </View>
       <Text className="w-full text-center font-bold text-2xl">TODOLIST</Text>
-      <ScrollView className="w-full flex flex-col gap-2 h-[300px] mt-2 px-2 overflow-y-scroll">
-        {todolist.map((t: ITodo) => {
-          return (
-            <View
-              key={t.id}
-              className="border rounded p-1 items-center flex flex-row"
-            >
-              <Text className="w-[80%]">{t.text}</Text>
-              <Button
-                title="DELETE"
-                color={"red"}
-                onPress={() => handleDeleteTodo(t.id)}
-              />
-            </View>
-          );
-        })}
-      </ScrollView>
-    </ScrollView>
+      {/* <ScrollView className="w-full flex flex-col gap-2 h-[300px] mt-2 px-2 overflow-y-scroll"> */}
+      <FlatList
+        data={todolist}
+        renderItem={({ item }) => (
+          <View className="border rounded mt-1 p-1 flex flex-row justify-between items-center">
+            <Text>{item.text}</Text>
+            <Button
+              title="DELETE"
+              color={"red"}
+              onPress={() => handleDeleteTodo(item.id)}
+            />
+          </View>
+        )}
+      />
+      {/* </ScrollView> */}
+    </View>
   );
 }
